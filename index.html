@@ -304,6 +304,55 @@
       margin: 0;
     }
 
+    /* People cards */
+    .people-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 24px;
+    }
+    .person-card{
+      text-align: center;
+      padding: 24px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      transition: box-shadow 0.2s ease;
+    }
+    .person-card:hover{
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    }
+    .person-card img{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 16px;
+      border: 3px solid var(--bg2);
+    }
+    .person-card h4{
+      margin: 0 0 4px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .person-card .affiliation{
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+    .person-card .note{
+      font-size: 12px;
+      color: var(--muted2);
+      margin-top: 6px;
+      font-style: italic;
+    }
+    .person-card a{
+      color: var(--brand);
+    }
+    .person-card a:hover{
+      text-decoration: underline;
+    }
+
     footer{
       padding: 48px 0 64px;
       color: var(--muted);
@@ -533,26 +582,126 @@
     <!-- PEOPLE -->
     <section class="container" id="people">
       <div class="sectionTitle">
-        <h2>Speakers & organizers</h2>
+        <h2>Organizers</h2>
       </div>
 
-      <div class="grid2">
-        <div class="card">
-          <div class="kicker">Steering committee</div>
-          <ul class="topics">
-            <li>Omar Khattab (MIT)</li>
-            <li>Deepti Raghavan (Brown University)</li>
-            <li>Dom Moritz (Carnegie Mellon University)</li>
-            <li>Shuyan Zhou (Duke University)</li>
-            <li>Ryan Marcus (University of Pennsylvania)</li>
-            <li>Zhou Yu (Columbia University)</li>
-            <li>Eugene Wu (Columbia University)</li>
-          </ul>
+      <div class="kicker" style="margin-bottom: 20px;">Steering Committee</div>
+      <div class="people-grid">
+        <div class="person-card">
+          <a href="https://omarkhattab.com/" target="_blank">
+            <img src="https://omarkhattab.com/aZQB6U4b_400x400.jpg" alt="Omar Khattab">
+          </a>
+          <h4><a href="https://omarkhattab.com/" target="_blank">Omar Khattab</a></h4>
+          <p class="affiliation">MIT</p>
         </div>
 
-        <div class="card">
-          <div class="kicker">Student committee</div>
-          <p style="color:var(--muted); margin:0">To be announced.</p>
+        <div class="person-card">
+          <a href="https://deeptir.me/" target="_blank">
+            <img src="https://deeptir.me/deepti_headshot_2018.jpg" alt="Deepti Raghavan">
+          </a>
+          <h4><a href="https://deeptir.me/" target="_blank">Deepti Raghavan</a></h4>
+          <p class="affiliation">Brown University</p>
+        </div>
+
+        <div class="person-card">
+          <a href="https://www.domoritz.de/" target="_blank">
+            <img src="https://www.domoritz.de/images/dominik_cmu.jpg" alt="Dom Moritz">
+          </a>
+          <h4><a href="https://www.domoritz.de/" target="_blank">Dom Moritz</a></h4>
+          <p class="affiliation">Carnegie Mellon University</p>
+        </div>
+
+        <div class="person-card">
+          <a href="https://www.shuyanzhou.com/" target="_blank">
+            <img src="https://www.shuyanzhou.com/assets/img/shuyan_zhou.jpg" alt="Shuyan Zhou">
+          </a>
+          <h4><a href="https://www.shuyanzhou.com/" target="_blank">Shuyan Zhou</a></h4>
+          <p class="affiliation">Duke University</p>
+        </div>
+
+        <div class="person-card">
+          <a href="https://rmarcus.info/blog/" target="_blank">
+            <img src="https://rmarcus.info/blog/assets/me-2025.jpg" alt="Ryan Marcus">
+          </a>
+          <h4><a href="https://rmarcus.info/blog/" target="_blank">Ryan Marcus</a></h4>
+          <p class="affiliation">University of Pennsylvania</p>
+        </div>
+
+        <div class="person-card">
+          <a href="https://www.cs.columbia.edu/~zhouyu/" target="_blank">
+            <img src="http://www.cs.cmu.edu/afs/cs/user/zhouyu/www/007.jpg" alt="Zhou Yu">
+          </a>
+          <h4><a href="https://www.cs.columbia.edu/~zhouyu/" target="_blank">Zhou Yu</a></h4>
+          <p class="affiliation">Columbia University</p>
+        </div>
+
+        <div class="person-card">
+          <a href="http://www.cs.columbia.edu/~ewu/" target="_blank">
+            <img src="https://datascience.columbia.edu/wp-content/uploads/2020/08/Eugene-Wu.png" alt="Eugene Wu">
+          </a>
+          <h4><a href="http://www.cs.columbia.edu/~ewu/" target="_blank">Eugene Wu</a></h4>
+          <p class="affiliation">Columbia University</p>
+        </div>
+
+        <div class="person-card">
+          <a href="https://tianyipeng.github.io/" target="_blank">
+            <img src="https://datascience.columbia.edu/wp-content/uploads/2025/01/Tianyi-Lin-Headshot-640x960.jpg" alt="Tianyi Peng">
+          </a>
+          <h4><a href="https://tianyipeng.github.io/" target="_blank">Tianyi Peng</a></h4>
+          <p class="affiliation">Columbia Business School</p>
+        </div>
+
+        <div class="person-card">
+          <a href="https://www.cs.columbia.edu/~kkaffes/" target="_blank">
+            <img src="https://www.cs.columbia.edu/~kkaffes/profile.jpg" alt="Kostis Kaffes">
+          </a>
+          <h4><a href="https://www.cs.columbia.edu/~kkaffes/" target="_blank">Kostis Kaffes</a></h4>
+          <p class="affiliation">Columbia University</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <div class="kicker" style="margin-bottom: 20px;">Student Committee</div>
+        <div class="people-grid">
+          <div class="person-card">
+            <a href="https://mdr223.github.io/" target="_blank">
+              <img src="https://mdr223.github.io/images/slack-pic.png" alt="Matt Russo">
+            </a>
+            <h4><a href="https://mdr223.github.io/" target="_blank">Matt Russo</a></h4>
+            <p class="affiliation">MIT</p>
+          </div>
+
+          <div class="person-card">
+            <a href="https://jeffreych0.github.io/" target="_blank">
+              <img src="https://jeffreych0.github.io/images/profile.JPG" alt="Jeffrey Cho">
+            </a>
+            <h4><a href="https://jeffreych0.github.io/" target="_blank">Jeffrey Cho</a></h4>
+            <p class="affiliation">University of Pennsylvania</p>
+          </div>
+
+          <div class="person-card">
+            <a href="https://siyan-sylvia-li.com/" target="_blank">
+              <img src="https://siyan-sylvia-li.com/img/ava.jpg" alt="Siyan Sylvia Li">
+            </a>
+            <h4><a href="https://siyan-sylvia-li.com/" target="_blank">Siyan Sylvia Li</a></h4>
+            <p class="affiliation">Columbia University</p>
+          </div>
+
+          <div class="person-card">
+            <a href="https://scholar.google.com/citations?user=k7BS7QMAAAAJ&hl=en" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg" alt="Haonan Wang">
+            </a>
+            <h4><a href="https://scholar.google.com/citations?user=k7BS7QMAAAAJ&hl=en" target="_blank">Haonan Wang</a></h4>
+            <p class="affiliation">Columbia University</p>
+          </div>
+
+          <div class="person-card">
+            <a href="https://yuszh.com/" target="_blank">
+              <img src="https://yuszh.com/images/yusen.jpg" alt="Yusen Zhang">
+            </a>
+            <h4><a href="https://yuszh.com/" target="_blank">Yusen Zhang</a></h4>
+            <p class="affiliation">Columbia University</p>
+          </div>
         </div>
       </div>
     </section>
