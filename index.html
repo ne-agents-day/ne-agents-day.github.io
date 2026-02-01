@@ -1,181 +1,620 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>North East AI Agents Day 2026</title>
-    <meta
-      name="description"
-      content="North East AI Agents Day 2026. A workshop on autonomous AI agents across ML, systems, and HCI."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="hero">
-      <nav class="nav">
-        <a href="#home">Home</a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="North East AI Agents Day 2026 — a one-day workshop bringing together ML, systems, and HCI to push reliable, scalable, and inspectable AI agents." />
+  <meta name="theme-color" content="#ffffff" />
+
+  <title>North East AI Agents Day 2026</title>
+
+  <!-- Keep your existing CSS if you want -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Modern font stack (no external fetch). -->
+  <style>
+    :root{
+      --bg: #ffffff;
+      --bg2:#f8f9fa;
+      --card:#ffffff;
+      --card2:#f1f3f5;
+      --text:#1a1a1a;
+      --muted:#495057;
+      --muted2:#6c757d;
+      --brand:#0066cc;
+      --brand2:#0052a3;
+      --ok:#0f5132;
+      --warn:#856404;
+      --border: #dee2e6;
+      --border-medium: #adb5bd;
+      --shadow: 0 1px 3px rgba(0,0,0,.08);
+      --radius: 12px;
+      --max: 1100px;
+    }
+
+    /* Base */
+    html,body{height:100%;margin:0;padding:0}
+    body{
+      color:var(--text);
+      background:var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height:1.7;
+      font-size:17px;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--max); margin:0 auto; padding:0 32px}
+    @media (max-width: 768px){
+      .container{padding:0 20px}
+    }
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 16px; border:1px solid var(--border); border-radius:999px;
+      background: var(--bg2);
+      color:var(--muted);
+      font-size:15px;
+    }
+    .pill b{color:var(--text); font-weight:600}
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size: 13px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      color: var(--text);
+    }
+
+    /* Header / Nav */
+    header{
+      position:sticky; top:0; z-index:30;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .navlinks{display:flex; gap:16px; align-items:center; flex-wrap:wrap}
+    .navlinks a{
+      padding:8px 12px;
+      border-radius: 8px;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .navlinks a:hover{
+      text-decoration:none;
+      border-bottom-color: var(--brand);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero{padding:64px 0 48px; background:transparent}
+    .heroGrid{
+      display:grid; grid-template-columns: 1.25fr .75fr; gap:18px;
+      align-items:start;
+      background:transparent;
+    }
+    @media (max-width: 900px){
+      .heroGrid{grid-template-columns:1fr}
+    }
+    .heroCard{
+      padding: 0;
+      background:transparent;
+    }
+    h1{
+      margin:16px 0 16px;
+      font-size: 48px;
+      line-height: 1.2;
+      letter-spacing: -.8px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    @media (max-width: 520px){
+      h1{font-size:36px}
+    }
+    .sub{
+      color:var(--muted);
+      font-size: 18px;
+      margin: 0 0 24px;
+      max-width: 70ch;
+      line-height: 1.7;
+    }
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top: 14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn:hover{
+      text-decoration:none;
+      background: var(--bg2);
+      border-color: var(--border-medium);
+    }
+    .btn.primary{
+      background: var(--brand);
+      border-color: var(--brand);
+      color:#ffffff;
+      box-shadow: 0 2px 8px rgba(0,102,204,.2);
+    }
+    .btn.primary:hover{
+      background: var(--brand2);
+      border-color: var(--brand2);
+      box-shadow: 0 4px 12px rgba(0,102,204,.3);
+    }
+    .mini{
+      margin-top: 20px;
+      display:flex; gap:16px; flex-wrap:wrap;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .mini a{color: var(--brand); transition: color 0.2s ease}
+    .mini a:hover{color: var(--brand2); text-decoration: underline}
+
+    /* Right panel */
+    .sideCard{
+      padding: 0;
+      background:transparent;
+    }
+    .sideTitle{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom: 10px;
+    }
+    .sideTitle h3{margin:0; font-size: 16px; letter-spacing:.1px}
+    .badge{
+      padding:6px 12px; border-radius:999px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--muted);
+      font-size: 13px;
+      white-space:nowrap;
+      font-weight: 500;
+    }
+    .countdown{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .cd{
+      padding: 16px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      text-align:center;
+    }
+    .cd .n{font-size: 24px; font-weight: 700; letter-spacing: -.4px; color: var(--brand)}
+    .cd .l{font-size: 13px; color: var(--muted); margin-top: 4px}
+    .sideList{margin:20px 0 0; padding-left: 24px; color: var(--text)}
+    .sideList li{margin: 10px 0; line-height: 1.6}
+
+    /* Sections */
+    section{padding: 80px 0}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin: 0 0 24px;
+    }
+    h2{margin:1em 0 0; font-size: 32px; letter-spacing:-.4px; font-weight: 700; color: var(--text)}
+    .hint{color: var(--muted2); font-size: 15px}
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px}
+    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap: 24px}
+    @media (max-width: 900px){
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{margin:0 0 12px; font-size: 20px; font-weight: 600; color: var(--text)}
+    .card p{margin:0; color: var(--muted); font-size: 16px; line-height: 1.6}
+    .kicker{
+      display:inline-block;
+      color: var(--brand);
+      font-size: 13px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    /* Topic list */
+    .topics{margin: 12px 0 0; padding-left: 24px; color: var(--text)}
+    .topics li{margin: 10px 0; line-height: 1.6}
+
+    /* Topic cards */
+    .topic-card{
+      border-left: 3px solid var(--brand);
+      padding: 20px 24px;
+      background: var(--bg2);
+      border-radius: 8px;
+    }
+    .topic-title{
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 10px;
+      line-height: 1.3;
+    }
+    .topic-desc{
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Dates table */
+    .dates{
+      width:100%;
+      border-collapse: collapse;
+      overflow:hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .dates th, .dates td{
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      text-align:left;
+      font-size: 16px;
+    }
+    .dates th{color: var(--text); font-weight:600; background: var(--bg2)}
+    .dates tr:last-child td{border-bottom:none}
+    .dates td{color: var(--muted)}
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* FAQ */
+    .faq-list{display:flex; flex-direction:column; gap:32px}
+    .faq-item{border-bottom: 1px solid var(--border); padding-bottom:24px}
+    .faq-item:last-child{border-bottom:none; padding-bottom:0}
+    .faq-q{
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 12px;
+    }
+    .faq-a{
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    footer{
+      padding: 48px 0 64px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+      background: var(--bg2);
+    }
+    footer a{color: var(--brand); transition: color 0.2s ease}
+    footer a:hover{color: var(--brand2); text-decoration: underline}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div>North East AI Agents Day 2026</div>
+      </div>
+      <nav class="navlinks" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#cfp">Call for Papers</a>
-        <a href="#dates">Important Dates</a>
+        <a href="#program">Program</a>
+        <a href="#people">People</a>
+        <a href="#faq">FAQ</a>
       </nav>
-      <div class="hero-content" id="home">
-        <h1>North East AI Agents Day 2026</h1>
-        <p class="hero-subtitle">TBD, First Week of May 2026 · Location TBA</p>
-      </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="container">
-      <section id="about">
-        <h2>About The Workshop</h2>
-        <p>
-          Autonomous AI agents have emerged as a transformative paradigm in artificial intelligence, enabling
-          systems to perceive, reason, and act within complex environments with minimal human intervention.
-          Powered by advances in LLMs, reinforcement learning, and orchestration frameworks, agents are able
-          to efficiently integrate planning, memory, and tool use in a compute-intensive paradigm to perform
-          multi-step tasks in domains such as software development, healthcare, and education.
-        </p>
-        <p>
-          Despite recent progress, achieving reliable agent performance in real-world systems remains a
-          comprehensive problem, and coordination across the full stack (ML, systems, and HCI) is underexplored.
-          Progress will require work across:
-        </p>
-        <ul>
-          <li>Better model training recipes and agent frameworks;</li>
-          <li>Better system abstractions for both agents and their environments, with a focus on efficiency, scalability, reliability, and observability;</li>
-          <li>Better personalization and human interpretability for seamless human-agent interactions.</li>
-        </ul>
-        <p>
-          The goal of this workshop is to offer a comprehensive overview of AI agents, bring these research
-          communities together to share progress, discuss common problems and evaluation setups, and identify
-          opportunities for collaboration. We aim to bring together attendees from diverse disciplines to foster
-          interdisciplinary collaboration and discuss open research questions.
-        </p>
-      </section>
+  <main>
+    <!-- HERO -->
+    <div class="container hero">
+      <h1>Building AI Agents That Actually Work</h1>
 
-      <section id="cfp">
-        <h2>Call for Papers</h2>
-        <p>
-          We welcome contributions to a broad range of topics on the design, development, systems support,
-          and applications of AI Agents, including but not limited to:
-        </p>
+      <div class="heroGrid">
+        <div class="heroCard">
+          <p class="sub">
+            A one-day workshop bringing together <b>academic researchers</b>—students and faculty—to tackle the hard problems:
+            making agents reliable, debuggable, and production-ready. Share your latest ideas, benchmarks, and lessons learned.
+            <b>ML</b> meets <b>systems</b> meets <b>HCI</b> to move agents from demos to infrastructure.
+          </p>
 
-        <div class="topics">
-          <div class="topic">
-            <h3>Interfaces and Embodiment</h3>
-            <p>
-              How should agents perceive and act within their environments (e.g., through tool use, exploration,
-              or interactions)? Should we design unified systems or specialized agents for different modalities?
-            </p>
-          </div>
-
-          <div class="topic">
-            <h3>Training Recipes and Data for Agentic Behavior</h3>
-            <p>
-              How can we improve agentic capabilities with more effective training algorithms and better data
-              mixtures? What evaluation-driven training practices best translate into reliable performance on
-              real-world, multi-step tasks?
-            </p>
-          </div>
-
-          <div class="topic">
-            <h3>Safety and Societal Implications</h3>
-            <p>
-              What guardrails are necessary to ensure AI agents operate safely in real-world settings? How can
-              we address the ethical, economic, and societal challenges posed by autonomous agents?
-            </p>
-          </div>
-
-          <div class="topic">
-            <h3>Human-Agent Interaction, Alignment, and Personalization</h3>
-            <p>
-              How can we personalize AI agents to adapt their behavior to dynamic user preferences across
-              individuals, groups, and contexts? How will future interactions between humans and AI agents evolve?
-            </p>
-          </div>
-
-          <div class="topic">
-            <h3>Applications</h3>
-            <p>
-              What are some exciting areas of application for agents? How can we push the frontiers of agentic
-              applications in areas such as computer use, data science, applications for science (e.g., scientific
-              discovery and deep research), education, healthcare, and software development?
-            </p>
-          </div>
-
-          <div class="topic">
-            <h3>Benchmarking and Evaluation</h3>
-            <p>
-              How can we develop robust environments and evaluation metrics that capture the diversity of
-              real-world settings?
-            </p>
-          </div>
-
-          <div class="topic">
-            <h3>Scalable Architectures for Training and Running Agents</h3>
-            <p>
-              What runtime and infrastructure abstractions are needed to train, evaluate, and deploy agents
-              reliably at scale under strict latency, cost, data, and quality requirements?
-            </p>
-          </div>
-
-          <div class="topic">
-            <h3>Context, State, and Orchestration of Agentic Systems</h3>
-            <p>
-              How should agent context and state be represented, managed, and shared over time? What abstractions
-              enable agents to coordinate through shared data, memory, or environments while remaining easily
-              programmable? How do we effectively orchestrate and control multi-agent systems for complex tasks?
-            </p>
-          </div>
-
-          <div class="topic">
-            <h3>Governance, Observability, Debugging, and Reproducibility of Agents</h3>
-            <p>
-              How can we build tracing, provenance, replay, and root-cause analysis tools that make agent behavior
-              inspectable and reproducible—especially under non-determinism and tool/environment drift?
-            </p>
+          <div class="ctaRow">
+            <a class="btn primary" href="#submit" style="width:100%">🚀 Submit (1-page abstract)</a>
           </div>
         </div>
 
-        <h3>Submission Guidelines</h3>
-        <p>
-          We welcome submissions of at most one page extended abstract.
-        </p>
-        <p>
-          <a href="#" class="btn">Submission Portal (Coming Soon)</a>
-        </p>
-      </section>
+        <aside class="sideCard" aria-label="Key info">
+          <div class="sideTitle">
+            <h3>Important Dates</h3>
+          </div>
 
-      <section id="dates">
-        <h2>Important Dates</h2>
-        <table class="dates-table">
-          <tr>
-            <td><strong>Submission Deadline</strong></td>
-            <td>April 1, 2026</td>
-          </tr>
-          <tr>
-            <td><strong>Notification of Acceptance</strong></td>
-            <td>April 18, 2026</td>
-          </tr>
-          <tr>
-            <td><strong>Camera-Ready Deadline</strong></td>
-            <td>April 25, 2026</td>
-          </tr>
-          <tr>
-            <td><strong>Workshop Date</strong></td>
-            <td>TBD, First Week of May 2026</td>
-          </tr>
-        </table>
-      </section>
-    </main>
+          <ul class="sideList">
+            <li><b>Submission deadline:</b> April 1, 2026</li>
+            <li><b>Notification:</b> April 18, 2026</li>
+            <li><b>Camera-ready:</b> April 25, 2026</li>
+            <li><b>Workshop:</b> TBD (first week of May)</li>
+          </ul>
+
+          <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="tag">🧠 ML</span>
+            <span class="tag">🧰 Systems</span>
+            <span class="tag">🧑‍💻 HCI</span>
+            <span class="tag">📏 Evaluation</span>
+            <span class="tag">🔎 Observability</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- WHY ATTEND -->
+    <section class="container" id="about">
+      <div class="sectionTitle">
+        <h2>Why participate?</h2>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="kicker">Connect</div>
+          <h3>Meet people solving the same problems</h3>
+          <p>Connect with researchers building agent infrastructure, designing evaluation frameworks, and deploying systems at scale. Share what's working, what's broken, and what nobody's talking about yet.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Define</div>
+          <h3>Help shape what success looks like</h3>
+          <p>Move beyond demos. Work together on shared benchmarks, evaluation protocols, and reproducible experiments that actually measure agent reliability, not just cherry-picked wins.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Collaborate</div>
+          <h3>Find your collaborators</h3>
+          <p>Lightning talks and hands-on demos designed to spark collaborations. Leave with concrete next steps, not just business cards.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:24px" class="card">
+        <div class="kicker">About the workshop</div>
+        <p style="margin:0; color:var(--muted);">
+          AI agents are blurring the traditional boundaries between disciplines. Building agents that work requires ML researchers who understand
+          system constraints, systems researchers who understand model behavior, and HCI researchers who understand how humans actually interact
+          with agents. This workshop brings together academic researchers—PhD students, postdocs, and faculty—across these communities to tackle
+          the hard problems together. We need cross-stack collaboration to develop better benchmarks, evaluation frameworks, orchestration systems,
+          and interaction paradigms. This is a space for the academic community to share early-stage work, negative results, and lessons learned
+          from actually trying to make agents reliable and useful.
+        </p>
+      </div>
+    </section>
+
+    <!-- CFP -->
+    <section class="container" id="cfp">
+      <div class="sectionTitle">
+        <h2>Call for Papers</h2>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="kicker">What we're looking for</div>
+          <ul class="topics">
+            <li><b>Concrete lessons from building/deploying agents</b> — what broke, what fixed it, what you'd do differently</li>
+            <li><b>New benchmarks, datasets, or evaluation tools</b> — even if preliminary</li>
+            <li><b>Cross-stack insights where ML meets systems meets HCI</b></li>
+            <li><b>Honest reports from production</b> — latency constraints, cost blowups, debugging nightmares</li>
+            <li><b>Techniques that actually generalize</b> — not just demo-ware</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="kicker">Submission format</div>
+          <p>
+            We welcome submissions of <b>at most one page</b> extended abstract. If you learned something that would save others time or spark a useful debate, we want to hear it.
+          </p>
+          <ul class="topics">
+            <li>Use any reasonable format (PDF preferred)</li>
+            <li>Include: problem, approach, key results/observations, and what you want feedback on</li>
+            <li>If you have code/data, link it (optional but encouraged)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:32px">
+        <h3 style="font-size:24px; font-weight:600; margin:0 0 24px; color:var(--text)">Research Topics</h3>
+
+        <div class="grid2" style="gap:20px">
+          <div class="topic-card">
+            <h4 class="topic-title">Interfaces and Embodiment</h4>
+            <p class="topic-desc">How should agents perceive and act within their environments (e.g., through tool use, exploration, or interactions)?</p>
+          </div>
+
+          <div class="topic-card">
+            <h4 class="topic-title">Training Recipes and Data for Agentic Behavior</h4>
+            <p class="topic-desc">Enhancing agent capabilities through more effective training algorithms and better data mixtures, and evaluation-driven practices.</p>
+          </div>
+
+          <div class="topic-card">
+            <h4 class="topic-title">Safety and Societal Implications</h4>
+            <p class="topic-desc">Guardrails necessary to ensure AI agents operate safely in real-world settings, plus ethical and economic considerations.</p>
+          </div>
+
+          <div class="topic-card">
+            <h4 class="topic-title">Human-Agent Interaction, Alignment, and Personalization</h4>
+            <p class="topic-desc">How to personalize AI agents to adapt their behavior to dynamic user preferences across diverse contexts.</p>
+          </div>
+
+          <div class="topic-card">
+            <h4 class="topic-title">Applications</h4>
+            <p class="topic-desc">Computer use, data science, applications for science (e.g., scientific discovery and deep research), education, healthcare, and software development.</p>
+          </div>
+
+          <div class="topic-card">
+            <h4 class="topic-title">Benchmarking and Evaluation</h4>
+            <p class="topic-desc">Development of robust environments and evaluation metrics that capture the diversity of real-world settings.</p>
+          </div>
+
+          <div class="topic-card">
+            <h4 class="topic-title">Scalable Architectures for Training and Running Agents</h4>
+            <p class="topic-desc">Infrastructure to train, evaluate, and deploy agents reliably at scale under strict latency, cost, data, and quality requirements.</p>
+          </div>
+
+          <div class="topic-card">
+            <h4 class="topic-title">Context, State, and Orchestration of Agentic Systems</h4>
+            <p class="topic-desc">Mechanisms for managing agent state representation and coordination through shared data, memory, or environments.</p>
+          </div>
+
+          <div class="topic-card">
+            <h4 class="topic-title">Governance, Observability, Debugging, and Reproducibility</h4>
+            <p class="topic-desc">Building tools for tracing, provenance, replay, and root-cause analysis supporting agent inspection and reproducibility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBMIT -->
+    <section class="container" id="submit">
+      <div class="sectionTitle">
+        <h2>Submit</h2>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Submission portal</div>
+        <p><b>Coming soon.</b> Submission link will be posted here soon.</p>
+      </div>
+    </section>
+
+    <!-- PROGRAM -->
+    <section class="container" id="program">
+      <div class="sectionTitle">
+        <h2>Program shape</h2>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="kicker">Keynotes</div>
+          <h3>Keynote talks</h3>
+          <p>Leading researchers sharing perspectives on the future of AI agents and open challenges. Speakers to be announced.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Talks</div>
+          <h3>Lightning talks</h3>
+          <p>Fast, high-density updates. Great for early ideas and "what I learned" results.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Demos</div>
+          <h3>Posters & demos</h3>
+          <p>Maximize hallway time—where collaborations actually start.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PEOPLE -->
+    <section class="container" id="people">
+      <div class="sectionTitle">
+        <h2>Speakers & organizers</h2>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="kicker">Steering committee</div>
+          <ul class="topics">
+            <li>Omar Khattab (MIT)</li>
+            <li>Deepti Raghavan (Brown University)</li>
+            <li>Dom Moritz (Carnegie Mellon University)</li>
+            <li>Shuyan Zhou (Duke University)</li>
+            <li>Ryan Marcus (University of Pennsylvania)</li>
+            <li>Zhou Yu (Columbia University)</li>
+            <li>Eugene Wu (Columbia University)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="kicker">Student committee</div>
+          <p style="color:var(--muted); margin:0">To be announced.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" id="faq">
+      <div class="sectionTitle">
+        <h2>FAQ</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-q">Is one page really enough?</h3>
+          <p class="faq-a">Yes. Treat it like a "high-signal note": what you did, what you learned, and what feedback you want. Links to longer drafts or artifacts are welcome but optional.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">Do you accept position papers / negative results?</h3>
+          <p class="faq-a">Yes—especially if the lesson generalizes (e.g., "agent failed because of tool drift / non-determinism / context limits / eval mismatch").</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">Will there be posters/demos?</h3>
+          <p class="faq-a">That's the plan. Posters/demos are often the best use of workshop time—keep them short, concrete, and interactive.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-q">What's the review criteria?</h3>
+          <p class="faq-a">Relevance to agents, clarity, and "discussion value." We're optimizing for a productive room: work that sparks debate, shared benchmarks, or collaborations.</p>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      <p>North East AI Agents Day 2026</p>
+      <div class="container">
+        <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+          <div>© 2026 North East AI Agents Day</div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <a href="#submit">Submit</a>
+            <a href="https://github.com/ne-agents-day/ne-agents-day.github.io">GitHub</a>
+          </div>
+        </div>
+      </div>
     </footer>
-  </body>
+  </main>
+
+  <!-- Smooth scroll for internal anchors -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', id);
+      });
+    });
+  </script>
+
+  <!-- Keep your existing JS if you want -->
+  <script src="script.js"></script>
+</body>
 </html>
+
