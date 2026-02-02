@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="North East AI Agents Day 2026 — a one-day workshop bringing together ML, systems, and HCI to push reliable, scalable, and inspectable AI agents." />
+  <meta name="description" content="North East Academic Agents Day 2026 — a one-day workshop bringing together academic researchers in ML, systems, and HCI to build reliable, scalable AI agents that actually work." />
   <meta name="theme-color" content="#ffffff" />
 
-  <title>North East AI Agents Day 2026</title>
+  <title>North East Academic Agents Day 2026</title>
 
   <!-- Keep your existing CSS if you want -->
   <link rel="stylesheet" href="styles.css" />
@@ -96,6 +96,65 @@
 
     /* Hero */
     .hero{padding:64px 0 48px; background:transparent}
+    .hero-header{
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .event-type{
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--brand);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      border-radius: 999px;
+      margin: 0 0 16px;
+    }
+    .tagline{
+      font-size: 22px;
+      color: var(--muted);
+      margin: 0;
+      font-weight: 400;
+    }
+    @media (max-width: 520px){
+      .tagline{font-size: 18px}
+    }
+    .key-details{
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding: 24px 32px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 40px;
+    }
+    .key-detail-item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+    }
+    .key-label{
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--brand);
+    }
+    .key-value{
+      font-size: 16px;
+      color: var(--text);
+      font-weight: 500;
+    }
+    @media (max-width: 768px){
+      .key-details{gap: 20px; padding: 20px}
+      .key-value{font-size: 14px}
+    }
     .heroGrid{
       display:grid; grid-template-columns: 1.25fr .75fr; gap:18px;
       align-items:start;
@@ -109,10 +168,10 @@
       background:transparent;
     }
     h1{
-      margin:16px 0 16px;
-      font-size: 48px;
-      line-height: 1.2;
-      letter-spacing: -.8px;
+      margin:0 0 12px;
+      font-size: 52px;
+      line-height: 1.1;
+      letter-spacing: -1px;
       font-weight: 700;
       color: var(--text);
     }
@@ -369,7 +428,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <div>North East AI Agents Day 2026</div>
+        <div>NE Academic Agents Day</div>
       </div>
       <nav class="navlinks" aria-label="Primary">
         <a href="#about">About</a>
@@ -384,18 +443,36 @@
   <main>
     <!-- HERO -->
     <div class="container hero">
-      <h1>Building AI Agents That Actually Work</h1>
+      <div class="hero-header">
+        <p class="event-type">A One-Day Workshop</p>
+        <h1>North East Academic Agents Day</h1>
+        <p class="tagline">Building AI Agents That Actually Work</p>
+      </div>
+
+      <div class="key-details">
+        <div class="key-detail-item">
+          <span class="key-label">When</span>
+          <span class="key-value">First week of May 2026 (TBD)</span>
+        </div>
+        <div class="key-detail-item">
+          <span class="key-label">Who</span>
+          <span class="key-value">Academic researchers: PhD students, postdocs, faculty</span>
+        </div>
+        <div class="key-detail-item">
+          <span class="key-label">Focus</span>
+          <span class="key-value">ML + Systems + HCI for reliable agents</span>
+        </div>
+      </div>
 
       <div class="heroGrid">
         <div class="heroCard">
           <p class="sub">
-            A one-day workshop bringing together <b>academic researchers</b>—students and faculty—to tackle the hard problems:
+            Bringing together <b>academic researchers</b> to tackle the hard problems:
             making agents reliable, debuggable, and production-ready. Share your latest ideas, benchmarks, and lessons learned.
-            <b>ML</b> meets <b>systems</b> meets <b>HCI</b> to move agents from demos to infrastructure.
           </p>
 
           <div class="ctaRow">
-            <a class="btn primary" href="#submit" style="width:100%">🚀 Submit (1-page abstract)</a>
+            <a class="btn primary" href="#submit" style="width:100%">Submit Your Work (1-page abstract)</a>
           </div>
         </div>
 
@@ -412,11 +489,11 @@
           </ul>
 
           <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
-            <span class="tag">🧠 ML</span>
-            <span class="tag">🧰 Systems</span>
-            <span class="tag">🧑‍💻 HCI</span>
-            <span class="tag">📏 Evaluation</span>
-            <span class="tag">🔎 Observability</span>
+            <span class="tag">ML</span>
+            <span class="tag">Systems</span>
+            <span class="tag">HCI</span>
+            <span class="tag">Evaluation</span>
+            <span class="tag">Observability</span>
           </div>
         </aside>
       </div>
@@ -738,7 +815,7 @@
     <footer>
       <div class="container">
         <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-          <div>© 2026 North East AI Agents Day</div>
+          <div>© 2026 North East Academic Agents Day</div>
           <div style="display:flex; gap:14px; flex-wrap:wrap;">
             <a href="#submit">Submit</a>
             <a href="https://github.com/ne-agents-day/ne-agents-day.github.io">GitHub</a>
