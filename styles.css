@@ -250,6 +250,20 @@ h1{
 
 .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top: 14px}
 
+.registration-status{
+  margin: 0;
+  display: inline-flex;
+  max-width: 58ch;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(245,246,248,0.88);
+  color: var(--text);
+  font-weight: 650;
+  line-height: 1.45;
+  box-shadow: var(--shadow-sm);
+}
+
 /* Buttons */
 .btn{
   display:inline-flex;
